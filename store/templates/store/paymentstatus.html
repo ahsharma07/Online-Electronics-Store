@@ -1,0 +1,29 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="container">
+
+    <div class="col my-4">
+        <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
+        {% if response.RESPCODE == '01' %}
+        ORDER SUCCESS
+        <script type="text/javascript">
+        	alert('Thanks for ordering with us. Use Order Tracker for further updates');
+localStorage.clear();
+document.location = "/";
+        </script>
+        {% else %}
+        <script >
+        	document.location="/checkout"
+        </script>
+        ORDER FAILURE
+        {% endif%}
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+	
+</script>
+{% endblock %}
